@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/panelFragment">
+
+    <fragment
+        android:id="@+id/panelFragment"
+        android:name="com.example.mantenipro.ui.PanelFragment"
+        android:label="Panel principal" />
+    <fragment
+        android:id="@+id/maquinariaFragment"
+        android:name="com.example.mantenipro.ui.MaquinariaFragment"
+        android:label="Maquinaria" />
+    <fragment
+        android:id="@+id/mantenimientosFragment"
+        android:name="com.example.mantenipro.ui.MantenimientosFragment"
+        android:label="Mantenimientos" />
+    <fragment
+        android:id="@+id/fallasFragment"
+        android:name="com.example.mantenipro.ui.FallasFragment"
+        android:label="Fallas" />
+    <fragment
+        android:id="@+id/historialFragment"
+        android:name="com.example.mantenipro.ui.HistorialFragment"
+        android:label="Historial" />
+</navigation>

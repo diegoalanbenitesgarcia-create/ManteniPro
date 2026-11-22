@@ -32,4 +32,8 @@
         android:id="@+id/detalleMaquinaFragment"
         android:name="com.example.mantenipro.ui.DetalleMaquinaFragment"
         android:label="Detalle de maquinaria" />
+    <fragment
+        android:id="@+id/programarMantenimientoFragment"
+        android:name="com.example.mantenipro.ui.ProgramarMantenimientoFragment"
+        android:label="Programar mantenimiento" />
 </navigation>

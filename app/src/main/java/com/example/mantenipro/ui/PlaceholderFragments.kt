@@ -17,12 +17,6 @@ class PanelFragment : Fragment(R.layout.fragment_placeholder) {
     }
 }
 
-class MantenimientosFragment : Fragment(R.layout.fragment_placeholder) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        titulo(view, "Mantenimientos")
-    }
-}
 
 class FallasFragment : Fragment(R.layout.fragment_placeholder) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -10,6 +10,9 @@ object Estados {
     const val MANT_PENDIENTE = "Pendiente"
     const val MANT_REALIZADO = "Realizado"
 
+    // Solo para mostrar en pantalla: nunca se guarda en la base de datos
+    const val MANT_VENCIDO = "Vencido"
+
     // Reportes de falla
     const val REPORTE_ABIERTO = "Abierto"
     const val REPORTE_EN_PROCESO = "En proceso"

@@ -2,7 +2,7 @@ package com.example.mantenipro.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -26,8 +26,10 @@ class MantenimientosFragment : Fragment(R.layout.fragment_mantenimientos) {
         _binding = FragmentMantenimientosBinding.bind(view)
 
         adapter = MantenimientoAdapter { item ->
-            // Aquí irá la navegación al detalle (interfaz 7)
-            Toast.makeText(requireContext(), item.maquinaNombre, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(
+                R.id.detalleMantenimientoFragment,
+                bundleOf("mantenimientoId" to item.mantenimiento.id)
+            )
         }
         binding.rvMantenimientos.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMantenimientos.adapter = adapter

@@ -36,4 +36,8 @@
         android:id="@+id/programarMantenimientoFragment"
         android:name="com.example.mantenipro.ui.ProgramarMantenimientoFragment"
         android:label="Programar mantenimiento" />
+    <fragment
+        android:id="@+id/detalleMantenimientoFragment"
+        android:name="com.example.mantenipro.ui.DetalleMantenimientoFragment"
+        android:label="Detalle de mantenimiento" />
 </navigation>

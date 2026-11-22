@@ -18,13 +18,6 @@ class PanelFragment : Fragment(R.layout.fragment_placeholder) {
 }
 
 
-class FallasFragment : Fragment(R.layout.fragment_placeholder) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        titulo(view, "Reportes de fallas")
-    }
-}
-
 class HistorialFragment : Fragment(R.layout.fragment_placeholder) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

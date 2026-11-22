@@ -40,4 +40,8 @@
         android:id="@+id/detalleMantenimientoFragment"
         android:name="com.example.mantenipro.ui.DetalleMantenimientoFragment"
         android:label="Detalle de mantenimiento" />
+    <fragment
+        android:id="@+id/registrarFallaFragment"
+        android:name="com.example.mantenipro.ui.RegistrarFallaFragment"
+        android:label="Reportar falla" />
 </navigation>

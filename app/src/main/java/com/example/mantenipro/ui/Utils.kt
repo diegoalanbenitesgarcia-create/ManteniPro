@@ -38,3 +38,15 @@ fun colorEstado(estado: String): Int = when (estado) {
     Estados.MANT_VENCIDO -> Color.parseColor("#C62828")
     else -> Color.parseColor("#EF6C00") // Pendiente
 }
+
+fun colorPrioridad(prioridad: String): Int = when (prioridad) {
+    "Alta" -> Color.parseColor("#C62828")
+    "Media" -> Color.parseColor("#EF6C00")
+    else -> Color.parseColor("#2E7D32") // Baja
+}
+
+fun colorEstadoReporte(estado: String): Int = when (estado) {
+    Estados.REPORTE_RESUELTO -> Color.parseColor("#2E7D32")
+    Estados.REPORTE_EN_PROCESO -> Color.parseColor("#EF6C00")
+    else -> Color.parseColor("#C62828") // Abierto
+}

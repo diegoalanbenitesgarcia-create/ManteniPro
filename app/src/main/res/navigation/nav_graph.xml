@@ -24,4 +24,12 @@
         android:id="@+id/historialFragment"
         android:name="com.example.mantenipro.ui.HistorialFragment"
         android:label="Historial" />
+    <fragment
+        android:id="@+id/registroMaquinaFragment"
+        android:name="com.example.mantenipro.ui.RegistroMaquinaFragment"
+        android:label="Registrar maquinaria" />
+    <fragment
+        android:id="@+id/detalleMaquinaFragment"
+        android:name="com.example.mantenipro.ui.DetalleMaquinaFragment"
+        android:label="Detalle de maquinaria" />
 </navigation>

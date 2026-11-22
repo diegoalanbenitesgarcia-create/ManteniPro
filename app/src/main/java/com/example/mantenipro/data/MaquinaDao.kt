@@ -24,4 +24,7 @@ interface MaquinaDao {
 
     @Query("SELECT COUNT(*) FROM maquinas WHERE estado = :estado")
     fun contarPorEstado(estado: String): Flow<Int>
+
+    @Query("SELECT COUNT(*) FROM maquinas WHERE codigo = :codigo AND id != :id")
+    suspend fun contarPorCodigoExcepto(codigo: String, id: Int): Int
 }

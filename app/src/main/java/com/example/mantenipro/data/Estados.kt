@@ -4,6 +4,7 @@ object Estados {
     // Maquinaria
     const val MAQUINA_FUNCIONANDO = "Funcionando"
     const val MAQUINA_FUERA_SERVICIO = "Fuera de servicio"
+    val AREAS = listOf("Producción", "Ensamble", "Empaque", "Almacén", "Calidad", "Mantenimiento")
 
     // Mantenimientos (Vencido se calcula, no se guarda)
     const val MANT_PENDIENTE = "Pendiente"

@@ -15,15 +15,24 @@ class MaquinaViewModel(application: Application) : AndroidViewModel(application)
 
     val maquinas: LiveData<List<Maquina>> = dao.obtenerTodas().asLiveData()
 
-    // TEMPORAL: se elimina cuando exista el formulario de registro
-    fun insertarDemo() = viewModelScope.launch {
-        dao.insertar(
-            Maquina(
-                nombre = "Torno CNC",
-                codigo = "MAQ-${(100..999).random()}",
-                area = "Producción",
-                fechaRegistro = System.currentTimeMillis()
-            )
-        )
+    // Devuelve false si ya existe una máquina con ese código
+    fun registrar(maquina: Maquina, onResultado: (Boolean) -> Unit) = viewModelScope.launch {
+        if (dao.contarPorCodigo(maquina.codigo) > 0) {
+            onResultado(false)
+        } else {
+            dao.insertar(maquina)
+            onResultado(true)
+        }
     }
-}
+    suspend fun obtenerPorId(id: Int): Maquina? = dao.obtenerPorId(id)
+
+    fun actualizar(maquina: Maquina, onResultado: (Boolean) -> Unit) = viewModelScope.launch {
+        if (dao.contarPorCodigoExcepto(maquina.codigo, maquina.id) > 0) {
+            onResultado(false)
+        } else {
+            dao.actualizar(maquina)
+            onResultado(true)
+        }
+    }
+
+    }

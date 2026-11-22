@@ -17,13 +17,6 @@ class PanelFragment : Fragment(R.layout.fragment_placeholder) {
     }
 }
 
-class MaquinariaFragment : Fragment(R.layout.fragment_placeholder) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        titulo(view, "Maquinaria")
-    }
-}
-
 class MantenimientosFragment : Fragment(R.layout.fragment_placeholder) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

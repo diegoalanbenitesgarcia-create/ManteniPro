@@ -12,6 +12,9 @@ import com.example.mantenipro.R
 import com.example.mantenipro.data.Maquina
 import com.example.mantenipro.data.MantenimientoConMaquina
 import com.example.mantenipro.databinding.FragmentHistorialBinding
+import android.content.Intent
+import android.widget.Toast
+import androidx.core.content.FileProvider
 
 class HistorialFragment : Fragment(R.layout.fragment_historial) {
 
@@ -57,6 +60,32 @@ class HistorialFragment : Fragment(R.layout.fragment_historial) {
         viewModel.historial.observe(viewLifecycleOwner) { lista ->
             todos = lista
             aplicarFiltro()
+        }
+        binding.btnExportar.setOnClickListener { exportar() }
+    }
+
+    private fun exportar() {
+        val datos = adapter.currentList
+        if (datos.isEmpty()) {
+            Toast.makeText(requireContext(), "No hay registros para exportar", Toast.LENGTH_SHORT).show()
+            return
+        }
+        try {
+            val archivo = ExportadorCsv.historial(requireContext(), datos)
+            val uri = FileProvider.getUriForFile(
+                requireContext(),
+                "${requireContext().packageName}.fileprovider",
+                archivo
+            )
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/csv"
+                putExtra(Intent.EXTRA_STREAM, uri)
+                putExtra(Intent.EXTRA_SUBJECT, "Historial de mantenimiento - ManteniPro")
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+            startActivity(Intent.createChooser(intent, "Compartir historial"))
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "No se pudo generar el archivo", Toast.LENGTH_SHORT).show()
         }
     }
 

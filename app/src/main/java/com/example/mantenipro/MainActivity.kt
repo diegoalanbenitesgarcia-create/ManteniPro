@@ -28,6 +28,14 @@ class MainActivity : AppCompatActivity() {
 
         val navHost = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        binding.bottomNav.setupWithNavController(navHost.navController)
+        val navController = navHost.navController
+        binding.bottomNav.setupWithNavController(navController)
+
+// Tocar el logo regresa al panel principal desde cualquier pantalla
+        binding.ivLogo.setOnClickListener {
+            if (!navController.popBackStack(R.id.panelFragment, false)) {
+                navController.navigate(R.id.panelFragment)
+            }
+        }
     }
 }

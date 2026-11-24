@@ -9,6 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mantenipro.R
 import com.example.mantenipro.databinding.FragmentPanelBinding
+import android.content.Intent
+import com.example.mantenipro.LoginActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class PanelFragment : Fragment(R.layout.fragment_panel) {
 
@@ -93,6 +96,21 @@ class PanelFragment : Fragment(R.layout.fragment_panel) {
         binding.chipProgramar.setOnClickListener { nav.navigate(R.id.programarMantenimientoFragment) }
         binding.chipReportar.setOnClickListener { nav.navigate(R.id.registrarFallaFragment) }
         binding.chipHistorial.setOnClickListener { nav.navigate(R.id.historialFragment) }
+
+        // ---- Cerrar sesión ----
+        binding.btnCerrarSesion.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Deseas salir de ManteniPro?")
+                .setNegativeButton("Cancelar", null)
+                .setPositiveButton("Salir") { _, _ ->
+                    startActivity(
+                        Intent(requireContext(), LoginActivity::class.java)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    )
+                }
+                .show()
+        }
     }
 
     private fun mostrarAlerta(fila: android.widget.TextView, cantidad: Int, singular: String, plural: String) {

@@ -25,6 +25,11 @@ class FallasFragment : Fragment(R.layout.fragment_fallas) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFallasBinding.bind(view)
 
+        when (arguments?.getString("filtro")) {
+            "abierto" -> binding.chipAbierto.isChecked = true
+            "alta" -> binding.chipAlta.isChecked = true
+        }
+
         adapter = ReporteAdapter { item -> mostrarDetalle(item) }
         binding.rvReportes.layoutManager = LinearLayoutManager(requireContext())
         binding.rvReportes.adapter = adapter
@@ -46,6 +51,9 @@ class FallasFragment : Fragment(R.layout.fragment_fallas) {
             R.id.chipAbierto -> todos.filter { it.reporte.estado == Estados.REPORTE_ABIERTO }
             R.id.chipEnProceso -> todos.filter { it.reporte.estado == Estados.REPORTE_EN_PROCESO }
             R.id.chipResuelto -> todos.filter { it.reporte.estado == Estados.REPORTE_RESUELTO }
+            R.id.chipAlta -> todos.filter {
+                it.reporte.prioridad == "Alta" && it.reporte.estado != Estados.REPORTE_RESUELTO
+            }
             else -> todos
         }
         adapter.submitList(filtrados)

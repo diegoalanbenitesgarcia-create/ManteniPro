@@ -25,6 +25,10 @@ class MantenimientosFragment : Fragment(R.layout.fragment_mantenimientos) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMantenimientosBinding.bind(view)
 
+        if (arguments?.getString("filtro") == "vencido") {
+            binding.chipVencido.isChecked = true
+        }
+
         adapter = MantenimientoAdapter { item ->
             findNavController().navigate(
                 R.id.detalleMantenimientoFragment,
